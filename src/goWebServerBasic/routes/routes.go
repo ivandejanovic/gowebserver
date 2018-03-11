@@ -3,6 +3,7 @@ package routes
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"goWebServerBasic/service"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -25,6 +26,19 @@ func AjaxHandler(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Unable to read body content"))
 	}
 	w.Write([]byte(contents))
+}
+
+func Ajax2Handler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	value := vars["key"]
+	fmt.Println(value)
+	response, err := service.Method(value)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Request to service failed"))
+	}
+
+	w.Write([]byte(response))
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {

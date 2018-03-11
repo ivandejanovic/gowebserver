@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-	"net/http"
 	"goWebServerBasic/routes"
+	"net/http"
 )
 
 func setStaticRoutesHandler(router *mux.Router) {
@@ -14,6 +14,7 @@ func setStaticRoutesHandler(router *mux.Router) {
 
 func setRouteHandler(router *mux.Router) {
 	router.HandleFunc("/ajax/{key}", routes.AjaxHandler)
+	router.HandleFunc("/ajax2/{key}", routes.Ajax2Handler)
 	router.HandleFunc("/", routes.RootHandler)
 }
 
