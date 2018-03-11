@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/ivandejanovic/goWebServerBasic/goWebServerBasic/router"
 	"net/http"
-	"goWebServerBasic/router"
 )
 
 func main() {
