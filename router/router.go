@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/ivandejanovic/goWebServerBasic/routes"
+	"github.com/ivandejanovic/gowebserver/routes"
 	"net/http"
 )
 

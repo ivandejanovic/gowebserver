@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ivandejanovic/goWebServerBasic/router"
+	"github.com/ivandejanovic/gowebzerver/router"
 	"net/http"
 )
 

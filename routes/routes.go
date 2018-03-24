@@ -3,7 +3,7 @@ package routes
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/ivandejanovic/goWebServerBasic/service"
+	"github.com/ivandejanovic/gowebserver/service"
 	"html/template"
 	"io/ioutil"
 	"net/http"
