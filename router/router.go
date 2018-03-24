@@ -8,7 +8,9 @@ import (
 
 func setStaticRoutesHandler(router *mux.Router) {
 	// Routes consist of a path and a handler function.
-	s := http.StripPrefix("/static/", http.FileServer(http.Dir("static")))
+	path := http.Dir("src/github.com/ivandejanovic/gowebserver/static/")
+	sh := http.FileServer(path)
+	s := http.StripPrefix("/static/", sh)
 	router.PathPrefix("/static/").Handler(s)
 }
 
