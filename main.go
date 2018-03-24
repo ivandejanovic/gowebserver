@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	var addr string = ":8000"
+	var addr string = ":8080"
 	var handler http.Handler = router.CreateRouteHandler()
 
 	// Bind to a port and pass route handler in
