@@ -42,7 +42,7 @@ func Ajax2Handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("tmpl/home.html")
+	tmpl, err := template.ParseFiles("src/github.com/ivandejanovic/gowebserver/tmpl/home.html")
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Parsing home template failed: " + err.Error()))
@@ -50,7 +50,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	data := struct {
 		Title string
 	}{
-		Title: "Go Web Server Basic Home Page",
+		Title: "Go Web Server Home Page",
 	}
 	tmpl.Execute(w, data)
 }
