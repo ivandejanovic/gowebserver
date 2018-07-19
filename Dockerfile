@@ -12,7 +12,7 @@ RUN go get github.com/ivandejanovic/gowebserver
 WORKDIR /go
 
 # Run the goWebServer command by default when the container starts.
-ENTRYPOINT ["/bin/goWebServerBasic"]
+ENTRYPOINT ["/go/bin/gowebserver"]
 
 # Document that the service listens on port 8000.
 EXPOSE 8080
