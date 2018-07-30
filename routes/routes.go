@@ -2,11 +2,13 @@ package routes
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/ivandejanovic/gowebserver/service"
 	"html/template"
 	"io/ioutil"
 	"net/http"
+	"os"
+
+	"github.com/gorilla/mux"
+	"github.com/ivandejanovic/gowebserver/service"
 )
 
 func AjaxHandler(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +44,14 @@ func Ajax2Handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("src/github.com/ivandejanovic/gowebserver/tmpl/home.html")
+	var path string
+	static, present := os.LookupEnv("STATIC")
+	if present {
+		path = static + "/tmpl/home.html"
+	} else {
+		path = "src/github.com/ivandejanovic/gowebserver/tmpl/home.html"
+	}
+	tmpl, err := template.ParseFiles(path)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Parsing home template failed: " + err.Error()))
